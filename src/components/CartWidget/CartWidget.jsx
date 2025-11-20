@@ -1,16 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
 
   const imgCarrito = "https://cdn-icons-png.flaticon.com/512/833/833314.png";
 
 
-    return (
-        <div>
+  return (
+    <Link to="/cart">
 
-            <img className='w-8 h-8' src={imgCarrito} alt="Imagen carrito de compras" />
+      <img className='w-8 h-8' src={imgCarrito} alt="Imagen carrito de compras" />
 
-        </div>)
+    </Link>)
 }
 
 export default CartWidget
