@@ -1,16 +1,59 @@
-# React + Vite
+# Padel Store – React E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web de tipo **Single Page Application (SPA)** desarrollada con **React**, realizada como proyecto final del curso de React.
 
-Currently, two official plugins are available:
+La idea del e-commerce está inspirada en un emprendimiento real, relacionado con el pádel, de un amigo. Actualmente, la aplicación no está pensada para uso productivo, pero fue desarrollada con una estructura escalable que permitiría, a futuro, convertirla en una tienda real.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Listado dinámico de productos
+- Filtrado por categorías
+- Vista de detalle de cada producto
+- Selección de cantidad con validación de stock
+- Carrito de compras con estado global
+- Proceso de checkout
+- Generación de órdenes de compra
+- Almacenamiento de órdenes en Firebase Firestore
+- Navegación completa sin recarga de página (SPA)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧩 Tecnologías utilizadas
+
+- **React** (componentes, hooks y context)
+- **React Router** para la navegación
+- **Firebase Firestore** como base de datos
+- **Tailwind CSS** para el estilado
+- **Vite** como herramienta de build
+
+---
+
+## 🛒 Flujo de compra
+
+- Los productos se obtienen dinámicamente desde Firestore
+- El stock se valida utilizando datos reales de la base de datos
+- El usuario puede agregar productos al carrito seleccionando la cantidad deseada
+- El carrito se gestiona de forma global mediante Context
+- Al confirmar la compra, se genera una orden que se guarda en Firestore
+- El usuario recibe el ID de la orden como confirmación de la compra
+
+---
+
+## 🎨 Interfaz y estilos
+
+La interfaz fue desarrollada utilizando Tailwind CSS, buscando una estética limpia, moderna y consistente en todos los componentes, priorizando la experiencia de usuario sin sobrecargar el diseño.
+
+---
+
+## 📌 Consideraciones finales
+
+Este proyecto se enfoca principalmente en el desarrollo del front-end y la experiencia de usuario.  
+No incluye procesamiento de pagos reales ni manejo avanzado de stock, pero sienta una base sólida para futuras mejoras y ampliaciones.
+
+---
+
+## 👤 Autor
+
+Proyecto desarrollado por **Jalil** como entrega final del curso de React.

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import { miContexto } from "../../providers/CartProvider";
 
-const ItemDetail = ({ id, nombre, precio, img, detalle }) => {
+const ItemDetail = ({ id, nombre, precio, img, detalle, stock }) => {
   const [addedQty, setAddedQty] = useState(0);
   const { addToCart } = useContext(miContexto);
 
@@ -15,7 +15,7 @@ const ItemDetail = ({ id, nombre, precio, img, detalle }) => {
       img,
       cantidad: qty
     };
-
+    
     addToCart(productToAdd);
     setAddedQty(qty);
   };
@@ -41,8 +41,12 @@ const ItemDetail = ({ id, nombre, precio, img, detalle }) => {
         {detalle}
       </p>
 
-      {addedQty === 0 ? (
-        <ItemCount stock={10} initial={1} onAdd={handleOnAdd} />
+      {stock === 0 ? (
+        <p className="text-red-600 font-semibold">
+          Out of stock
+        </p>
+      ) : addedQty === 0 ? (
+        <ItemCount stock={stock} initial={1} onAdd={handleOnAdd} />
       ) : (
         <div className="flex flex-col items-center gap-4">
           <p className="text-green-600 font-semibold">
