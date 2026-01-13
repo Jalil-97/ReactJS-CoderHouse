@@ -1,26 +1,64 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import ItemCount from "../ItemCount/ItemCount";
+import { miContexto } from "../../providers/CartProvider";
 
 const ItemDetail = ({ id, nombre, precio, img, detalle }) => {
-    return (
-        <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">{nombre}</h2>
-            <h3 className="text-lg text-gray-600 mb-4">${precio}</h3>
-            
-            <img 
-                src={img} 
-                alt={nombre} 
-                className="w-64 h-64 object-cover rounded-lg mb-4 shadow-sm"
-            />
-            
-            <p className="text-gray-700 text-center mb-4">{detalle}</p>
+  const [addedQty, setAddedQty] = useState(0);
+  const { addToCart } = useContext(miContexto);
 
-            <button className="mt-2 w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
-                <NavLink>Add to cart</NavLink>
-            </button>
+  const handleOnAdd = (qty) => {
+    const productToAdd = {
+      id,
+      nombre,
+      precio,
+      img,
+      cantidad: qty
+    };
+
+    addToCart(productToAdd);
+    setAddedQty(qty);
+  };
+
+  return (
+    <div className="text-center max-w-3xl mx-auto bg-white rounded-2xl border border-gray-100 shadow-[0_12px_40px_rgba(2,6,23,0.08)] overflow-hidden p-6">
+
+      <img
+        src={img}
+        alt={nombre}
+        className="w-full h-96 object-contain mb-6"
+      />
+
+      <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+        {nombre}
+      </h2>
+
+      <p className="text-xl font-bold text-gray-700 mb-4">
+        ${precio}
+      </p>
+
+      <p className="text-gray-600 mb-6">
+        {detalle}
+      </p>
+
+      {addedQty === 0 ? (
+        <ItemCount stock={10} initial={1} onAdd={handleOnAdd} />
+      ) : (
+        <div className="flex flex-col items-center gap-4">
+          <p className="text-green-600 font-semibold">
+            ✔ Product added to cart
+          </p>
+
+          <Link
+            to="/cart"
+            className="px-6 py-2 bg-neutral-900 hover:bg-neutral-800 text-white rounded-lg transition"
+          >
+            Go to cart
+          </Link>
         </div>
-    )
-}
+      )}
+    </div>
+  );
+};
 
-
-export default ItemDetail
+export default ItemDetail;
