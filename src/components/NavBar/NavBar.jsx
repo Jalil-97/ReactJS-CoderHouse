@@ -1,7 +1,10 @@
 import CartWidget from "../CartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 const NavBar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
     const linkClass = ({ isActive }) =>
         isActive
             ? "text-blue-600 font-semibold"
@@ -11,7 +14,6 @@ const NavBar = () => {
         <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
-                {/* Logo + Title */}
                 <div className="flex items-center gap-3">
                     <img
                         className="h-10 w-10 object-contain drop-shadow-[0_0_6px_rgba(0,132,255,0.6)]"
@@ -26,7 +28,6 @@ const NavBar = () => {
                     </NavLink>
                 </div>
 
-                {/* Navigation */}
                 <nav className="hidden md:block">
                     <ul className="flex gap-6 font-medium">
                         <li>
@@ -47,12 +48,53 @@ const NavBar = () => {
                     </ul>
                 </nav>
 
-                {/* Cart */}
-                <CartWidget />
+                <div className="flex items-center gap-4">
+                    <CartWidget />
+
+                    <button
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        className="md:hidden text-2xl text-gray-700"
+                    >
+                        ☰
+                    </button>
+                </div>
             </div>
+
+            {menuOpen && (
+                <nav className="md:hidden bg-white border-t border-gray-200">
+                    <ul className="flex flex-col gap-4 px-6 py-4 font-medium">
+                        <li>
+                            <NavLink
+                                to="/categorias/rackets"
+                                className={linkClass}
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Rackets
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/categorias/balls"
+                                className={linkClass}
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Balls
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/categorias/bags-backpacks"
+                                className={linkClass}
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Bags & Backpacks
+                            </NavLink>
+                        </li>
+                    </ul>
+                </nav>
+            )}
         </header>
     );
 };
 
 export default NavBar;
-    

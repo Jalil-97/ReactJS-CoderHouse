@@ -20,7 +20,7 @@ const ItemListContainer = () => {
 
       .then((respuesta) => setProductos(respuesta))
       .catch((error) => console.log(error))
-      .finally(() => {setLoading(false)});
+      .finally(() => { setLoading(false) });
 
   }, [params.categoria]);
 

@@ -7,13 +7,13 @@ const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
   const params = useParams();
 
-useEffect(() => {
-  getUnProducto(params.id)
-    .then(respuesta => {
-      setProducto(respuesta);
-    })
-    .catch(error => console.log(error));
-}, [params.id]);
+  useEffect(() => {
+    getUnProducto(params.id)
+      .then(respuesta => {
+        setProducto(respuesta);
+      })
+      .catch(error => console.log(error));
+  }, [params.id]);
 
 
 

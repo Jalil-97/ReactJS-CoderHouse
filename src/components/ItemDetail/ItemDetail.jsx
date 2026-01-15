@@ -15,7 +15,7 @@ const ItemDetail = ({ id, nombre, precio, img, detalle, stock }) => {
       img,
       cantidad: qty
     };
-    
+
     addToCart(productToAdd);
     setAddedQty(qty);
   };

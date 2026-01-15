@@ -11,7 +11,7 @@ const ItemList = ({ products }) => {
           <Item key={item.id} {...item} />
         ))}
       </div>
-      
+
     </section>
   );
 };

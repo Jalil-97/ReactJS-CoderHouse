@@ -4,6 +4,17 @@ Este proyecto es una aplicación web de tipo **Single Page Application (SPA)** d
 
 La idea del e-commerce está inspirada en un emprendimiento real, relacionado con el pádel, de un amigo. Actualmente, la aplicación no está pensada para uso productivo, pero fue desarrollada con una estructura escalable que permitiría, a futuro, convertirla en una tienda real.
 
+
+---
+
+
+## 🌐 Demo online
+
+La aplicación se encuentra desplegada en Netlify y puede visitarse en el siguiente enlace:
+
+👉 https://padel-store-shop.netlify.app/
+
+
 ---
 
 ## 🚀 Funcionalidades

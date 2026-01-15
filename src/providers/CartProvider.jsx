@@ -12,7 +12,6 @@ const CartProvider = ({ children }) => {
         setCart([]);
     };
 
-
     const addToCart = (productoNuevo) => {
 
         setCart(prevCart => {
@@ -43,16 +42,11 @@ const CartProvider = ({ children }) => {
         totalCantidad
     }
 
-
-
     return (
 
-        <Provider value={{valorDelContexto, cart, totalCantidad, clearCart, addToCart}}>
-
+        <Provider value={{ valorDelContexto, cart, totalCantidad, clearCart, addToCart }}>
             {children}
-
         </Provider>
-
     )
 }
 

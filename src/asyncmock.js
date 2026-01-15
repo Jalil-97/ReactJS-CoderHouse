@@ -11,7 +11,7 @@ export const getProductos = async (categoria) => {
   const snapshot = await getDocs(consulta)
 
   return snapshot.docs.map(doc => ({
-    id: doc.id,      
+    id: doc.id,
     ...doc.data()
   }))
 }
